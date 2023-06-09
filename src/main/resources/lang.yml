@@ -1,0 +1,142 @@
+##########################
+#                        #
+#  Lang file by Ynfuien  #
+#                        #
+##########################
+
+
+#### Quick info:
+# 1. If you don't want a message to be sent, just set it empty - ''
+
+# 2. You can use MiniMessage formatting for custom colors and formats!
+# If you don't know how, then here is documentation:
+# https://docs.advntr.dev/minimessage/format.html
+
+# 3. PlaceholderAPI is supported
+
+# 4. Plugin placeholders are within curly brackets - {placeholder}
+# If you add an exclamation mark (!) before placeholder name - {!placeholder},
+# then it won't be formatted in any way. It's useful for user input placeholders,
+# so they won't be formatted by what player enters.
+
+
+# Prefix that will be used for {prefix} placeholder
+prefix: '<dark_aqua>[<bold><aqua>Y<green>RB</bold><dark_aqua>]<reset>'
+
+plugin-is-reloading: '{prefix} <red>Plugin is reloading, wait a second..'
+
+help-no-commands: '{prefix} <red>You don''t have permission for any command!'
+help-top: '{prefix} <dark_aqua>Available commands:'
+help-command-template: '<click:suggest_command:"/{command}"><hover:show_text:"Click to enter the command"><blue>/{command}</click> <white>- <aqua>{description}'
+
+
+commands-usage-profile: 'profile'
+commands-usage-setting: 'setting'
+commands-usage-value: 'value'
+
+
+commands-incorrect: '{prefix} <red>Incorrect command! Use /{command} help, for help.'
+commands-no-permission: '{prefix} <red>You don''t have permission for this command!'
+
+# Command descriptions
+command-help-description: 'Displays available commands'
+command-reload-description: 'Reloads plugin configuration'
+command-modify-description: 'Modifies provided profile'
+command-enable-description: 'Enables provided profile'
+command-disable-description: 'Disables provided profile'
+command-list-description: 'Lists all loaded profiles'
+command-info-description: 'Shows all info about provided profile'
+command-version-description: 'Shows plugin info'
+
+# Reload command
+command-reload-fail: '{prefix} <red>An error occurred while reloading plugin. Take a look in the console for more information!'
+command-reload-success: '{prefix} <aqua>Plugin was <green>successfully <aqua>reloaded!'
+
+# Enable command
+command-enable-fail-no-profile: '{prefix} <red>You have to enter profile that you want to enable!'
+command-enable-fail-profile-doesnt-exist: '{prefix} <red>Provided profile doesn''t exist!'
+command-enable-success: '{prefix} <aqua>Profile <dark_aqua>{profile-name} <aqua>has been <green>enabled<aqua>!'
+command-enable-already: '{prefix} <aqua>Profile <dark_aqua>{profile-name} <aqua>is already enabled!'
+
+# Disable command
+command-disable-fail-no-profile: '{prefix} <red>You have to enter profile that you want to disable!'
+command-disable-fail-profile-doesnt-exist: '{prefix} <red>Provided profile doesn''t exist!'
+command-disable-success: '{prefix} <aqua>Profile <dark_aqua>{profile-name} <aqua>has been <red>disabled<aqua>!'
+command-disable-already: '{prefix} <aqua>Profile <dark_aqua>{profile-name} <aqua>is already disabled!'
+
+# List command
+command-list-header: '{prefix} <dark_aqua>All profiles:'
+command-list-entry: '<aqua>{number}. <click:run_command:"/{command}"><hover:show_text:"Click to show info">{profile}</click>'
+command-list-enabled-profile: '<green>{profile-name}'
+command-list-disabled-profile: '<red>{profile-name}'
+
+# Info command
+command-info-fail-no-profile: '{prefix} <red>You have to enter profile that you want to check!'
+command-info-fail-profile-doesnt-exist: '{prefix} <red>Provided profile doesn''t exist!'
+command-info-header: '{prefix} <dark_aqua>Profile <blue>{profile-name}<dark_aqua>:'
+command-info-entry-enabled: '<aqua>Enabled: {enabled}'
+command-info-placeholder-enabled: '<green>yes'
+command-info-placeholder-disabled: '<red>no'
+command-info-entry-worlds: '<aqua>Worlds: {worlds}'
+command-info-placeholder-world: '<white>{world-name}'
+command-info-placeholder-worlds-separator: '<gray>, '
+command-info-entry-border: '<aqua>Border: <white>min-size: <green>{min-size}<gray>, <white>max-size: <dark_green>{max-size}'
+command-info-entry-resize: '<aqua>Resize:'
+command-info-entry-resize-by: '<white>- by: <dark_aqua>{resize-by} block(s)'
+command-info-entry-resize-time: '<white>- time: <hover:show_text:"{resize-time-minutes} minute(s)"><dark_aqua>{resize-time-seconds} second(s)</hover>'
+command-info-entry-resize-interval: '<white>- interval: {resize-interval}'
+command-info-placeholder-resize-interval: '<dark_aqua>{interval} minute(s)'
+command-info-placeholder-resize-no-interval: '<red>no'
+command-info-entry-resize-lastresize: '<white>- last resize: <dark_aqua>{resize-lastresize}'
+command-info-entry-resize-crontask: '<white>- crontask: {resize-crontask}'
+command-info-placeholder-resize-crontask: '<hover:show_text:"{resize-crontask-description}"><dark_aqua>{resize-crontask-expression}</hover>'
+command-info-placeholder-resize-no-crontask: '<red>no'
+command-info-entry-resize-message: '<white>- message: {resize-message}'
+command-info-placeholder-resize-message: '<click:suggest_command:"{message}"><hover:show_text:"{message}"><dark_aqua><green>yes</click>'
+command-info-placeholder-resize-no-message: '<red>no'
+
+# Modify command
+command-modify-fail: '{prefix} <red>Something went wrong while modifying {setting} setting.'
+command-modify-fail-no-profile: '{prefix} <red>You have to enter profile that you want to modify!'
+command-modify-fail-profile-doesnt-exist: '{prefix} <red>Provided profile doesn''t exist!'
+command-modify-fail-no-setting: '{prefix} <red>Enter setting that you want to modify!'
+command-modify-fail-incorrect-setting: '{prefix} <red>Provided setting is incorrect!'
+command-modify-fail-no-value: '{prefix} <red>You have to provide value you want to set to!'
+command-modify-fail-same-value: '{prefix} <red>This setting is already set to <dark_red>{!value}<red>!'
+
+command-modify-worlds-fail-world-doesnt-exist: '{prefix} <red>World <dark_red>{!world-name} <red>doesn''t exist!'
+command-modify-worlds-success: '{prefix} <green>Successfully <aqua>modified worlds of profile <dark_aqua>{profile-name} <aqua>to <dark_aqua>{!worlds}<aqua>!'
+
+command-modify-border-min-size-fail-incorrect-value: '{prefix} <red>Provided value is incorrect! It has to be a number!'
+command-modify-border-min-size-fail-too-small: '{prefix} <red>Setting {setting} can''t be lower than 1!'
+command-modify-border-min-size-success: '{prefix} <green>Successfully <aqua>modified border.min-size of profile <dark_aqua>{profile-name} <aqua>to <dark_aqua>{min-size} block(s)<aqua>!'
+
+command-modify-border-max-size-fail-incorrect-value: '{prefix} <red>Provided value is incorrect! It has to be a number!'
+command-modify-border-max-size-fail-too-small: '{prefix} <red>Setting {setting} can''t be lower than 1!'
+command-modify-border-max-size-success: '{prefix} <green>Successfully <aqua>modified border.max-size of profile <dark_aqua>{profile-name} <aqua>to <dark_aqua>{max-size} block(s)<aqua>!'
+
+command-modify-resize-by-fail-incorrect-value: '{prefix} <red>Provided value is incorrect! It has to be a number!'
+command-modify-resize-by-fail-zero: '{prefix} <red>Setting {setting} can''t be 0! The whole purpose of this plugin is to RESIZE border...'
+command-modify-resize-by-success: '{prefix} <green>Successfully <aqua>modified resize.by of profile <dark_aqua>{profile-name} <aqua>to <dark_aqua>{resize-by} block(s)<aqua>!'
+
+command-modify-resize-time-fail-incorrect-value: '{prefix} <red>Provided value is incorrect! It has to be a number!'
+command-modify-resize-time-fail-too-small: '{prefix} <red>Setting {setting} can''t be lower than 0 seconds!'
+command-modify-resize-time-success: '{prefix} <green>Successfully <aqua>modified resize.time of profile <dark_aqua>{profile-name} <aqua>to <dark_aqua>{resize-time} second(s)<aqua>!'
+
+command-modify-resize-interval-fail-crontask-in-use: '{prefix} <red>This profile is already using crontask! Remove it to change interval.'
+command-modify-resize-interval-fail-incorrect-value: '{prefix} <red>Provided value is incorrect! It has to be a number!'
+command-modify-resize-interval-fail-too-small: '{prefix} <red>Setting {setting} can''t be lower than 0.02 minutes!'
+command-modify-resize-interval-success: '{prefix} <green>Successfully <aqua>modified resize.time of profile <dark_aqua>{profile-name} <aqua>to <dark_aqua>{resize-interval} minute(s)<aqua>!'
+
+command-modify-crontask-fail: '{prefix} <red>Provided cron expression is incorrect!'
+command-modify-crontask-fail-doesnt-exist: '{prefix} <red>You can''t remove crontask, because it doesn''t exist!'
+command-modify-crontask-success: '{prefix} <green>Successfully <aqua>modified crontask of profile <dark_aqua>{profile-name} <aqua>to <dark_aqua><hover:show_text:"{cron-description}">{cron-expression}</hover><aqua>!'
+command-modify-crontask-success-remove: '{prefix} <green>Successfully <red>removed <aqua>crontask! Profile will now use an interval.'
+
+command-modify-resize-message-success: '{prefix} <green>Successfully <aqua>modified resize.message of profile <dark_aqua>{profile-name} <aqua>to:<newline><dark_aqua>{resize-message}'
+
+# Version command
+command-version: '{prefix} <dark_aqua>Plugin info:<newline>{prefix} <aqua>Name: <white>{name}<newline>{prefix} <aqua>Version: <green>{version}<newline>{prefix} <aqua>Author: <click:open_url:"{website}"><hover:show_text:"{website}"><white>{author}</click>'
+
+
+border-resize-message: '{prefix} <gold>Border in world <yellow>{world} <gold>has been resized by <white>{by} blocks <gold>and is now <white>{new-size} blocks <gold>wide!'

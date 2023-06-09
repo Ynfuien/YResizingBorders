@@ -1,0 +1,79 @@
+example:
+  # Whether this profile is supposed to work.
+  # This can be changed using command in game/console.
+  enabled: false
+
+  # Worlds to affect
+  worlds:
+    - example_world
+    - someotherworld
+
+  # Border settings
+  border:
+    # Max size that won't be crossed by auto resizing
+    max-size: 100000
+    # Min size that won't be crossed by auto resizing
+    min-size: 100
+
+    # Resizing settings
+    resize:
+      # By how many blocks will border resize, every time interval passes
+      by: 10
+
+      # Time of resizing in seconds.
+      # 0 for instant resize
+      # 86400 for 24 hours
+      # Have in mind that resizing time passes only when server is on!
+      # After restart, border will continue to resize from where it has been when server stopped.
+      time: 600
+
+      # Interval in minutes. If you really want to use seconds, just type 0 minutes with decimal numbers (e.g. 0.5 for 30 seconds).
+      # Minutes for example intervals:
+      # Year - 525600
+      # Month (30 days) - 43200
+      # Week - 10080
+      # Day - 1440
+      # Hour - 60
+      interval: 1440
+      # Unix timestamp for last resize.
+      # It's used to check whether next resize should be performed.
+      # Don't touch it, plugin automatically updates it.
+      last-resize: 0
+
+      # If you know how and prefer using cron over an interval, then here you go.
+      # '* * * * * *' - seconds, minutes, hours, day of month, month, day of week
+      # Example 1: '0 0 5 * * *' - Will resize border every day at 5 AM
+      # Example 2: '0-59 * * * * *' - every second
+      # Example 3: '0 20 4 * * 1' - every monday at 4:20 AM
+      # Leave empty to use interval
+      crontask: ''
+
+      # If you want different resize message for each profile, then you can set it here.
+      # And if you want default message from lang file, then left this empty ('').
+      # !Note that this message will be sent for resize of each world!
+      # Placeholders you can use:
+      # {prefix} - Prefix set in lang file
+      # {world} - Name of the world that's border is resized
+      # {by} - Number of blocks that border is resized by
+      # {new-size} - New size of the border
+      # {old-size} - Old size of the border
+      # {resize-time-seconds} - Number of seconds that it will take border to fully resize
+      # {resize-time-minutes} - Same as above but in minutes
+      # {resize-time-hours} - Same as above but in hours
+      message: '{prefix} <gold>Border of the <yellow>{world} <gold>started resizing and will be in <yellow>{resize-time-minutes} minutes <gold>wider by <yellow>{by} blocks<gold>!'
+
+example2:
+  enabled: false
+  worlds:
+    - someyetanotherworld
+  border:
+    max-size: 1000
+    min-size: 1
+    # Resize by one block every minute
+    resize:
+      by: 1
+      time: 59
+      interval: 0
+      last-resize: 0
+      crontask: '0 * * * * *'
+      message: ''

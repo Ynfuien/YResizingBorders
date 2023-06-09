@@ -1,0 +1,37 @@
+name: '${project.name}'
+version: '${project.version}'
+main: pl.ynfuien.yresizingborders.YResizingBorders
+api-version: 1.19
+softdepend: [PlaceholderAPI]
+author: Ynfuien
+description: '${project.description}'
+website: 'https://ynfu.pl'
+
+commands:
+  yresizingborders:
+    aliases: [yrb]
+    description: Main and only plugin's command
+    permission: yresizingborders.command
+
+permissions:
+  yresizingborders.command:
+    description: "Allows to use plugin's command"
+    default: op
+  yresizingborders.command.disable:
+    description: "Allows to disable profile"
+    default: op
+  yresizingborders.command.enable:
+    description: "Allows to enable profile"
+    default: op
+  yresizingborders.command.list:
+    description: "Allows to list profiles"
+    default: op
+  yresizingborders.command.modify:
+    description: "Allows to modify profile"
+    default: op
+  yresizingborders.command.reload:
+    description: "Allows to use reload subcommand"
+    default: op
+  yresizingborders.command.version:
+    description: "Allows to see plugin's info"
+    default: true
