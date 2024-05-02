@@ -50,7 +50,7 @@ public class CronTask {
     public boolean checkTime() {
         // Return false if next execution is after now
         ZonedDateTime now = ZonedDateTime.now();
-        if (!nextExecution.isBefore(now)) return false;
+        if (nextExecution.isAfter(now)) return false;
 
         nextExecution = executionTime.nextExecution(now).get();
         return true;
