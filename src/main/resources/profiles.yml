@@ -44,9 +44,10 @@ example:
       # If you know how and prefer using cron over an interval, then here you go.
       # '* * * * * *' - seconds, minutes, hours, day of month, month, day of week
       # Example 1: '0 0 5 * * *' - Will resize border every day at 5 AM
-      # Example 2: '0-59 * * * * *' - every second
+      # Example 2: '0 */10 * * * *' - every 10 minutes
       # Example 3: '0 20 4 * * 1' - every monday at 4:20 AM
-      # Leave empty to use interval
+      # Setting it to run every second is not supported.
+      # Leave empty to use the interval.
       crontask: ''
 
       # If you want different resize message for each profile, then you can set it here.
