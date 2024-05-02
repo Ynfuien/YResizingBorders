@@ -17,7 +17,8 @@ example:
 
     # Resizing settings
     resize:
-      # By how many blocks will border resize, every time interval passes
+      # By how many blocks will border resize, every time interval passes.
+      # Use negative numbers to shrink the border
       by: 10
 
       # Time of resizing in seconds.
@@ -49,10 +50,10 @@ example:
       crontask: ''
 
       # If you want different resize message for each profile, then you can set it here.
-      # And if you want default message from lang file, then left this empty ('').
-      # !Note that this message will be sent for resize of each world!
+      # And if you want default message from the lang file, then leave this empty ('').
+      # !Note that this message will be sent on resize of each world!
       # Placeholders you can use:
-      # {prefix} - Prefix set in lang file
+      # {prefix} - Prefix set in the lang file
       # {world} - Name of the world that's border is resized
       # {by} - Number of blocks that border is resized by
       # {new-size} - New size of the border
