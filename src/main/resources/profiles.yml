@@ -62,7 +62,7 @@ example:
       # {resize-time-seconds} - Number of seconds that it will take border to fully resize
       # {resize-time-minutes} - Same as above but in minutes
       # {resize-time-hours} - Same as above but in hours
-      message: '{prefix} <gold>Border of the <yellow>{world} <gold>started resizing and will be in <yellow>{resize-time-minutes} minutes <gold>wider by <yellow>{by} blocks<gold>!'
+      message: '{prefix} <gold>Border of the <yellow>{world} <gold>started resizing and in <yellow>{resize-time-minutes} minutes <gold>will be wider by <yellow>{by} blocks<gold>!'
 
 example2:
   enabled: false
