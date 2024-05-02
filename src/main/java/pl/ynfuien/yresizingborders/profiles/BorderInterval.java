@@ -41,7 +41,7 @@ public class BorderInterval {
                 if (!profile.checkExecution()) continue;
 
                 List<String> worlds = profile.getWorlds();
-                if (worlds.size() < 1) continue;
+                if (worlds.isEmpty()) continue;
 
                 boolean resizedAny = false;
                 for (String world : worlds) {
@@ -99,13 +99,11 @@ public class BorderInterval {
             }
 
 
-            if (resizedProfiles.size() > 0) {
+            if (!resizedProfiles.isEmpty()) {
                 ConfigObject configObject = instance.getConfigHandler().get(ConfigName.PROFILES);
-//                FileConfiguration config = configObject.getConfig();
 
                 for (BorderProfile profile : resizedProfiles) {
                     profile.save();
-//                    config.set(profile.getName() + ".border.resize.last-resize", profile.getLastResize().getTime());
                 }
 
                 configObject.save();

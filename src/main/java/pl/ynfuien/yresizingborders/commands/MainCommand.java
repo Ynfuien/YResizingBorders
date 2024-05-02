@@ -73,7 +73,7 @@ public class MainCommand implements CommandExecutor, TabCompleter {
 
         // Get commands the sender has permissions for
         List<Subcommand> canUse = Arrays.stream(subcommands).filter(cmd -> sender.hasPermission(cmd.permission())).toList();
-        if (canUse.size() == 0) return completions;
+        if (canUse.isEmpty()) return completions;
 
         //// Tab completion for subcommands
         String arg1 = args[0].toLowerCase();

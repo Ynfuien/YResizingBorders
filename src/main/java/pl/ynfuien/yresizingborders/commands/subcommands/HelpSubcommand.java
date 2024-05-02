@@ -42,7 +42,7 @@ public class HelpSubcommand implements Subcommand {
         Lang.Message.HELP_TOP.send(sender);
 
         // If player can't use any command
-        if (canUse.size() == 0) {
+        if (canUse.isEmpty()) {
             // Send help no commands message
             Lang.Message.HELP_NO_COMMANDS.send(sender);
             return;

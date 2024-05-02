@@ -72,7 +72,7 @@ public class EnableSubcommand implements Subcommand {
 
     @Override
     public List<String> getTabCompletions(CommandSender sender, String[] args) {
-        // Create compltions list
+        // Create completions list
         List<String> completions = new ArrayList<>();
 
         // Return empty array if args length is higher than 1

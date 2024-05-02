@@ -115,7 +115,7 @@ public class BorderProfile {
         // Resize interval and crontask
         resizeInterval = (long) (resize.getDouble("interval") * 60 * 1000);
         String cronExpression = resize.getString("crontask", "").trim();
-        if (cronExpression.length() == 0) {
+        if (cronExpression.isEmpty()) {
             if (resizeInterval < 1200) {
                 logError("Border resize interval can't be lower than 0.02!");
                 return false;
@@ -134,8 +134,6 @@ public class BorderProfile {
 
     public boolean save() {
         FileConfiguration config = YResizingBorders.getInstance().getConfigHandler().getConfig(ConfigName.PROFILES);
-//        ConfigObject configObject = YResizingBorders.getInstance().getConfigHandler().get(ConfigName.PROFILES);
-//        FileConfiguration config = configObject.getConfig();
 
         String p = name;
         config.set(p+".enabled", enabled);
@@ -219,7 +217,7 @@ public class BorderProfile {
         return resizeCrontask != null;
     }
     public boolean isResizeMessage() {
-        return resizeMessage.length() > 0;
+        return !resizeMessage.isEmpty();
     }
 
     //// Setters
