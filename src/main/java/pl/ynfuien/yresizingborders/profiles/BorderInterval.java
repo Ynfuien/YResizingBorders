@@ -76,7 +76,9 @@ public class BorderInterval {
                         put("prefix", Lang.Message.PREFIX.get());
                         put("world", w.getName());
                         put("old-size", df.format(size));
-                        put("resize-time", df.format(resizeTime));
+                        put("resize-time-seconds", df.format(resizeTime));
+                        put("resize-time-minutes", df.format((double) resizeTime / 60));
+                        put("resize-time-hours", df.format((double) resizeTime / 60 / 60));
                     }};
                     placeholders.put("new-size", df.format(newSize));
                     placeholders.put("by", df.format(resizeBy));
