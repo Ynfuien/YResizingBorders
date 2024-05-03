@@ -18,4 +18,4 @@ You can read about plugin's [permissions](https://github.com/Ynfuien/YResizingBo
 ![Border](https://i.imgur.com/urQTFWF.gif)
 
 # License
-This project use [GNU GPLv3](https://github.com/Ynfuien/YResizingBorders/blob/main/LICENSE) license.
+This project uses [GNU GPLv3](https://github.com/Ynfuien/YResizingBorders/blob/main/LICENSE) license.
