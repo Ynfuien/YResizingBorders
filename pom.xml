@@ -16,7 +16,7 @@
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <url>https://github.com/Ynfuien/YResizingBorders</url>
+    <url>https://modrinth.com/project/yresizingborders</url>
 
     <build>
         <plugins>
