@@ -10,6 +10,9 @@ Plugin to automatically resize worlds borders. Requires at least [Paper](https:/
 - Fully customizable translations in lang file
 - Simple commands with tab completions
 
+# Download
+You can download the plugin only on [Modrinth](https://modrinth.com/plugin/yresizingborders), or compile it by yourself.
+
 # Documentation
 You can read about plugin's [permissions](https://github.com/Ynfuien/YResizingBorders/wiki/2.-Permissions), [placeholders](https://github.com/Ynfuien/YResizingBorders/wiki/3.-Placeholders) etc. on the [wiki](https://github.com/Ynfuien/YResizingBorders/wiki) page.
 
