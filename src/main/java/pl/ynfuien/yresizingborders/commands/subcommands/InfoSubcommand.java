@@ -83,14 +83,16 @@ public class InfoSubcommand implements Subcommand {
         // {resize-by} placeholder
         placeholders.put("resize-by", df.format(profile.getResizeBy()));
 
-        // {resize-time} placeholder
+        // {resize-time} placeholders
         int resizeTime = profile.getResizeTime();
         placeholders.put("resize-time-seconds", resizeTime);
         placeholders.put("resize-time-minutes", df.format((double) resizeTime / 60));
+        placeholders.put("resize-time-hours", df.format((double) resizeTime / 60 / 60));
 
         // {resize-interval} placeholder
         double intervalInMinutes = profile.getResizeIntervalMinutes();
-        placeholders.put("interval", df.format(intervalInMinutes));
+        placeholders.put("interval-minutes", df.format(intervalInMinutes));
+        placeholders.put("interval-hours", df.format(intervalInMinutes / 60));
         String resizeIntervalPlaceholder = profile.isUsingCrontask() ? Lang.Message.COMMAND_INFO_PLACEHOLDER_RESIZE_NO_INTERVAL.get(placeholders) : Lang.Message.COMMAND_INFO_PLACEHOLDER_RESIZE_INTERVAL.get(placeholders);
         placeholders.put("resize-interval", resizeIntervalPlaceholder);
 
@@ -108,15 +110,14 @@ public class InfoSubcommand implements Subcommand {
         placeholders.put("resize-crontask", crontaskPlaceholder);
 
         // {resize-message} placeholder
+        HashMap<String, Object> resizeMessagePlaceholders = new HashMap<>();
         String resizeMessagePlaceholder = Lang.Message.COMMAND_INFO_PLACEHOLDER_RESIZE_NO_MESSAGE.get();
         if (profile.isResizeMessage()) {
-            HashMap<String, Object> tmp = new HashMap<>();
-            tmp.put("prefix", Lang.Message.PREFIX.get());
-            tmp.put("message", profile.getResizeMessage());
-//            tmp.put("resize-message-unformatted", miniMessage.escapeTags(profile.getResizeMessage()));
-            resizeMessagePlaceholder = Lang.Message.COMMAND_INFO_PLACEHOLDER_RESIZE_MESSAGE.get(tmp);
+            resizeMessagePlaceholders.put("prefix", Lang.Message.PREFIX.get());
+            resizeMessagePlaceholders.put("message", profile.getResizeMessage());
+            resizeMessagePlaceholder = Lang.Message.COMMAND_INFO_PLACEHOLDER_RESIZE_MESSAGE.get(resizeMessagePlaceholders);
         }
-        placeholders.put("resize-message", resizeMessagePlaceholder);
+        resizeMessagePlaceholders.put("resize-message", resizeMessagePlaceholder);
 
         // All info messages to send
         Lang.Message[] messages = {
@@ -129,13 +130,12 @@ public class InfoSubcommand implements Subcommand {
                 Lang.Message.COMMAND_INFO_ENTRY_RESIZE_TIME,
                 Lang.Message.COMMAND_INFO_ENTRY_RESIZE_INTERVAL,
                 Lang.Message.COMMAND_INFO_ENTRY_RESIZE_LASTRESIZE,
-                Lang.Message.COMMAND_INFO_ENTRY_RESIZE_CRONTASK,
-                Lang.Message.COMMAND_INFO_ENTRY_RESIZE_MESSAGE
+                Lang.Message.COMMAND_INFO_ENTRY_RESIZE_CRONTASK
         };
 
-        for (Lang.Message message : messages) {
-            message.send(sender, placeholders);
-        }
+        for (Lang.Message message : messages) message.send(sender, placeholders);
+
+        Lang.Message.COMMAND_INFO_ENTRY_RESIZE_MESSAGE.send(sender, resizeMessagePlaceholders);
     }
 
     @Override
