@@ -5,6 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import pl.ynfuien.yresizingborders.YResizingBorders;
 import pl.ynfuien.yresizingborders.commands.Subcommand;
+import pl.ynfuien.yresizingborders.config.ConfigName;
 import pl.ynfuien.yresizingborders.profiles.BorderProfile;
 import pl.ynfuien.yresizingborders.profiles.BorderProfiles;
 import pl.ynfuien.yresizingborders.utils.Lang;
@@ -67,6 +68,7 @@ public class EnableSubcommand implements Subcommand {
 
         profile.enable();
         profile.save();
+        YResizingBorders.getInstance().getConfigHandler().get(ConfigName.PROFILES).save();
         Lang.Message.COMMAND_ENABLE_SUCCESS.send(sender, placeholders);
     }
 
