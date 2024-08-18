@@ -1,5 +1,6 @@
 package pl.ynfuien.yresizingborders;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -44,6 +45,9 @@ public final class YResizingBorders extends JavaPlugin {
         // Register command
         Bukkit.getPluginCommand("yresizingborders").setExecutor(new MainCommand());
         Bukkit.getPluginCommand("yresizingborders").setTabCompleter(new MainCommand());
+
+        // BStats
+        new Metrics(this, 23087);
 
         Logger.log("Plugin successfully <green>enabled<white>!");
     }
