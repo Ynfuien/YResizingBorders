@@ -1,10 +1,13 @@
 package pl.ynfuien.yresizingborders.config;
 
-public enum ConfigName {
+import pl.ynfuien.ydevlib.config.ConfigObject;
+
+public enum ConfigName implements ConfigObject.Name {
     LANG,
     PROFILES;
 
-    String getFileName() {
+    @Override
+    public String getFileName() {
         return name().toLowerCase().replace('_', '-') + ".yml";
     }
 }

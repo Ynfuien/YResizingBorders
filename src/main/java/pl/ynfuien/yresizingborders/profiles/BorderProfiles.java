@@ -1,7 +1,7 @@
 package pl.ynfuien.yresizingborders.profiles;
 
 import org.bukkit.configuration.ConfigurationSection;
-import pl.ynfuien.yresizingborders.utils.Logger;
+import pl.ynfuien.ydevlib.messages.YLogger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,10 +44,10 @@ public class BorderProfiles {
 
     //// Log methods
     private void logError(String message) {
-        Logger.logWarning("[Profiles] " + message);
+        YLogger.warn("[Profiles] " + message);
     }
     private void logInfo(String message) {
-        Logger.log("[Profiles] " + message);
+        YLogger.info("[Profiles] " + message);
     }
 
 

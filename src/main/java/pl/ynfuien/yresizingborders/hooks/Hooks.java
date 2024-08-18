@@ -1,9 +1,9 @@
 package pl.ynfuien.yresizingborders.hooks;
 
 import org.bukkit.Bukkit;
+import pl.ynfuien.ydevlib.messages.YLogger;
 import pl.ynfuien.yresizingborders.YResizingBorders;
 import pl.ynfuien.yresizingborders.hooks.placeholderapi.PlaceholderAPIHook;
-import pl.ynfuien.yresizingborders.utils.Logger;
 
 public class Hooks {
     private static PlaceholderAPIHook papiHook = null;
@@ -14,10 +14,10 @@ public class Hooks {
             papiHook = new PlaceholderAPIHook(instance);
             if (!papiHook.register()) {
                 papiHook = null;
-                Logger.logError("[Hooks] Something went wrong while registering PlaceholderAPI hook!");
+                YLogger.error("[Hooks] Something went wrong while registering PlaceholderAPI hook!");
             }
             else {
-                Logger.log("[Hooks] Successfully registered hook for PlaceholderAPI!");
+                YLogger.info("[Hooks] Successfully registered hook for PlaceholderAPI!");
             }
         }
     }

@@ -1,15 +1,14 @@
 package pl.ynfuien.yresizingborders.commands.subcommands;
 
-import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import pl.ynfuien.ydevlib.messages.colors.ColorFormatter;
+import pl.ynfuien.ydevlib.utils.DoubleFormatter;
 import pl.ynfuien.yresizingborders.YResizingBorders;
 import pl.ynfuien.yresizingborders.commands.Subcommand;
 import pl.ynfuien.yresizingborders.profiles.BorderProfile;
 import pl.ynfuien.yresizingborders.profiles.BorderProfiles;
-import pl.ynfuien.yresizingborders.utils.DoubleFormatter;
 import pl.ynfuien.yresizingborders.utils.Lang;
-import pl.ynfuien.yresizingborders.utils.Messenger;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,8 +36,6 @@ public class InfoSubcommand implements Subcommand {
         return String.format("<%s>", Lang.Message.COMMANDS_USAGE_PROFILE.get());
     }
 
-    private final MiniMessage miniMessage = Messenger.getMiniMessage();
-
     @Override
     public void run(CommandSender sender, Command command, String label, String[] args) {
         // Return if profile name isn't provided
@@ -54,7 +51,7 @@ public class InfoSubcommand implements Subcommand {
 
         // Placeholders in messages
         HashMap<String, Object> placeholders = new HashMap<>();
-        placeholders.put("profile-name", miniMessage.escapeTags(profileName));
+        placeholders.put("profile-name", ColorFormatter.SERIALIZER.escapeTags(profileName));
 
         if (!borderProfiles.has(profileName)) {
             Lang.Message.COMMAND_INFO_FAIL_PROFILE_DOESNT_EXIST.send(sender, placeholders);

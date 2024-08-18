@@ -4,14 +4,14 @@ import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import pl.ynfuien.ydevlib.config.ConfigHandler;
+import pl.ynfuien.ydevlib.messages.YLogger;
 import pl.ynfuien.yresizingborders.commands.MainCommand;
-import pl.ynfuien.yresizingborders.config.ConfigHandler;
 import pl.ynfuien.yresizingborders.config.ConfigName;
 import pl.ynfuien.yresizingborders.hooks.Hooks;
 import pl.ynfuien.yresizingborders.profiles.BorderInterval;
 import pl.ynfuien.yresizingborders.profiles.BorderProfiles;
 import pl.ynfuien.yresizingborders.utils.Lang;
-import pl.ynfuien.yresizingborders.utils.Logger;
 
 public final class YResizingBorders extends JavaPlugin {
     private static YResizingBorders instance;
@@ -24,7 +24,7 @@ public final class YResizingBorders extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        Logger.setPrefix("<dark_aqua>[<aqua>Y<green>RB<dark_aqua>] <white>");
+        YLogger.setup("<dark_aqua>[<aqua>Y<green>RB<dark_aqua>] <white>", getComponentLogger());
 
         loadConfigs();
         loadLang();
@@ -32,7 +32,7 @@ public final class YResizingBorders extends JavaPlugin {
         // Load border profiles
         FileConfiguration profilesConfig = configHandler.getConfig(ConfigName.PROFILES);
         if (!borderProfiles.load(profilesConfig)) {
-            Logger.logError("Border profiles couldn't be loaded! Correct 'profiles.yml' file and restart server, for plugin to work.");
+            YLogger.error("Border profiles couldn't be loaded! Correct 'profiles.yml' file and restart server, for plugin to work.");
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
@@ -49,14 +49,14 @@ public final class YResizingBorders extends JavaPlugin {
         // BStats
         new Metrics(this, 23087);
 
-        Logger.log("Plugin successfully <green>enabled<white>!");
+        YLogger.info("Plugin successfully <green>enabled<white>!");
     }
 
     @Override
     public void onDisable() {
         borderInterval.stop();
 
-        Logger.log("Plugin successfully <red>disabled<white>!");
+        YLogger.info("Plugin successfully <red>disabled<white>!");
     }
 
     // Loads language config

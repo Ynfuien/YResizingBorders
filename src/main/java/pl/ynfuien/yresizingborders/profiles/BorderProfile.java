@@ -3,10 +3,10 @@ package pl.ynfuien.yresizingborders.profiles;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.jetbrains.annotations.NotNull;
+import pl.ynfuien.ydevlib.messages.YLogger;
 import pl.ynfuien.yresizingborders.YResizingBorders;
 import pl.ynfuien.yresizingborders.config.ConfigName;
 import pl.ynfuien.yresizingborders.utils.CronTask;
-import pl.ynfuien.yresizingborders.utils.Logger;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -162,7 +162,7 @@ public class BorderProfile {
     }
 
     private void logError(String message) {
-        Logger.logWarning(String.format("[Profile] [%s] %s", name, message));
+        YLogger.warn(String.format("[Profile] [%s] %s", name, message));
     }
 
 

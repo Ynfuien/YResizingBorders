@@ -5,12 +5,12 @@ import org.bukkit.World;
 import org.bukkit.WorldBorder;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitTask;
+import pl.ynfuien.ydevlib.config.ConfigObject;
+import pl.ynfuien.ydevlib.messages.Messenger;
+import pl.ynfuien.ydevlib.utils.DoubleFormatter;
 import pl.ynfuien.yresizingborders.YResizingBorders;
 import pl.ynfuien.yresizingborders.config.ConfigName;
-import pl.ynfuien.yresizingborders.config.ConfigObject;
-import pl.ynfuien.yresizingborders.utils.DoubleFormatter;
 import pl.ynfuien.yresizingborders.utils.Lang;
-import pl.ynfuien.yresizingborders.utils.Messenger;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -83,10 +83,10 @@ public class BorderInterval {
                     placeholders.put("new-size", df.format(newSize));
                     placeholders.put("by", df.format(resizeBy));
 
-                    String message = Lang.Message.BORDER_RESIZE_MESSAGE.get(placeholders);
-                    if (profile.isResizeMessage()) message = Messenger.replacePlaceholders(profile.getResizeMessage(), placeholders);
+                    String message = Lang.Message.BORDER_RESIZE_MESSAGE.get();
+                    if (profile.isResizeMessage()) message = profile.getResizeMessage();
 
-                    for (Player p : Bukkit.getOnlinePlayers()) Messenger.send(p, message);
+                    for (Player p : Bukkit.getOnlinePlayers()) Messenger.send(p, message, placeholders);
 
                     double finalNewSize = newSize;
                     Bukkit.getScheduler().runTask(instance, () -> wb.setSize(finalNewSize, resizeTime));
@@ -102,7 +102,7 @@ public class BorderInterval {
 
 
             if (!resizedProfiles.isEmpty()) {
-                ConfigObject configObject = instance.getConfigHandler().get(ConfigName.PROFILES);
+                ConfigObject configObject = instance.getConfigHandler().getConfigObject(ConfigName.PROFILES);
 
                 for (BorderProfile profile : resizedProfiles) {
                     profile.save();

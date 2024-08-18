@@ -1,19 +1,18 @@
 package pl.ynfuien.yresizingborders.commands.subcommands;
 
-import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import pl.ynfuien.ydevlib.messages.colors.ColorFormatter;
+import pl.ynfuien.ydevlib.utils.DoubleFormatter;
 import pl.ynfuien.yresizingborders.YResizingBorders;
 import pl.ynfuien.yresizingborders.commands.Subcommand;
 import pl.ynfuien.yresizingborders.config.ConfigName;
 import pl.ynfuien.yresizingborders.profiles.BorderProfile;
 import pl.ynfuien.yresizingborders.profiles.BorderProfiles;
 import pl.ynfuien.yresizingborders.utils.CronTask;
-import pl.ynfuien.yresizingborders.utils.DoubleFormatter;
 import pl.ynfuien.yresizingborders.utils.Lang;
-import pl.ynfuien.yresizingborders.utils.Messenger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -56,7 +55,6 @@ public class ModifySubcommand implements Subcommand {
             "resize.crontask",
             "resize.message"
     ));
-    private final MiniMessage miniMessage = Messenger.getMiniMessage();
 
     @Override
     public void run(CommandSender sender, Command command, String label, String[] args) {
@@ -113,7 +111,7 @@ public class ModifySubcommand implements Subcommand {
         if (!response.success) return;
 
         profile.save();
-        instance.getConfigHandler().get(ConfigName.PROFILES).save();
+        instance.getConfigHandler().getConfigObject(ConfigName.PROFILES).save();
     }
 
     private ModifyResponse modifyProfile(BorderProfile profile, String setting, String[] value) {
@@ -177,7 +175,7 @@ public class ModifySubcommand implements Subcommand {
                 return response.setMessage(Lang.Message.COMMAND_MODIFY_FAIL);
             }
 
-            placeholders.put("worlds", miniMessage.escapeTags(String.join(", ", worlds)));
+            placeholders.put("worlds", ColorFormatter.SERIALIZER.escapeTags(String.join(", ", worlds)));
             return response.setSuccess().setMessage(Lang.Message.COMMAND_MODIFY_WORLDS_SUCCESS);
         }
 

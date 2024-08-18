@@ -1,11 +1,11 @@
 package pl.ynfuien.yresizingborders.hooks.placeholderapi.placeholders;
 
 import org.bukkit.OfflinePlayer;
+import pl.ynfuien.ydevlib.utils.DoubleFormatter;
 import pl.ynfuien.yresizingborders.hooks.placeholderapi.Placeholder;
 import pl.ynfuien.yresizingborders.profiles.BorderProfile;
 import pl.ynfuien.yresizingborders.profiles.BorderProfiles;
 import pl.ynfuien.yresizingborders.utils.CronTask;
-import pl.ynfuien.yresizingborders.utils.DoubleFormatter;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
