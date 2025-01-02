@@ -59,6 +59,8 @@ example:
       # {by} - Number of blocks that border is resized by
       # {new-size} - New size of the border
       # {old-size} - Old size of the border
+      # {new-radius} - New radius of the border (half a border size)
+      # {old-radius} - Old radius of the border
       # {resize-time-seconds} - Number of seconds that it will take border to fully resize
       # {resize-time-minutes} - Same as above but in minutes
       # {resize-time-hours} - Same as above but in hours
