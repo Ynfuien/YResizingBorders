@@ -37,7 +37,7 @@ public class PlaceholderAPIHook extends PlaceholderExpansion {
 
     @Override @NotNull
     public String getVersion() {
-        return "1.0.0";
+        return instance.getPluginMeta().getVersion();
     }
 
     @Override
