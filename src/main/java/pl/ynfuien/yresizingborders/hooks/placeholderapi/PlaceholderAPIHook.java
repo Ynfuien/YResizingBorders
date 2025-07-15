@@ -6,6 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import pl.ynfuien.yresizingborders.YResizingBorders;
 import pl.ynfuien.yresizingborders.hooks.placeholderapi.placeholders.ProfilePlaceholders;
 import pl.ynfuien.yresizingborders.hooks.placeholderapi.placeholders.ProfilesPlaceholders;
+import pl.ynfuien.yresizingborders.hooks.placeholderapi.placeholders.WorldborderPlaceholders;
 import pl.ynfuien.yresizingborders.profiles.BorderProfiles;
 
 public class PlaceholderAPIHook extends PlaceholderExpansion {
@@ -21,7 +22,8 @@ public class PlaceholderAPIHook extends PlaceholderExpansion {
 
         placeholders = new Placeholder[] {
             new ProfilePlaceholders(borderProfiles),
-            new ProfilesPlaceholders(borderProfiles)
+            new ProfilesPlaceholders(borderProfiles),
+            new WorldborderPlaceholders()
         };
     }
 
@@ -69,6 +71,10 @@ public class PlaceholderAPIHook extends PlaceholderExpansion {
     // Profiles
     // %yrb_profiles_count%
     // %yrb_profiles_list%
+
+    // World border
+    // %yrb_worldborder_size%
+    // %yrb_worldborder_size_<world>%
 
 
     @Override
